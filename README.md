@@ -146,6 +146,50 @@ B
 
 ---
 
+## 🧠 Agent Design and Functionality
+
+The core system operates as a **modular financial analysis agent** with three major components:
+
+### 1. 🔍 Question Understanding Module
+Responsible for:
+- Classifying the input question as `multiple_choice`, `rise_fall`, or `other`
+- Detecting the input language to support multilingual support (Thai/English)
+
+This allows the pipeline to dynamically decide which prompt structure and reasoning path to take.
+
+### 2. 📚 Contextual Retrieval Module
+- Uses a vectorstore retriever (e.g., Chroma, FAISS) to find the most relevant documents for each question
+- Filters and formats the context into a usable prompt-friendly format
+- Handles noisy or mixed-language queries by relying on semantic similarity
+
+### 3. 🤖 Prompt Generator and Inference Agent
+- Builds role-specific prompts for Qwen-32B using `<thinking>` and `<output>` tags
+- Ensures the model reasons step-by-step before committing to a final answer
+- Maintains response consistency with clear parsing tags
+- Uses different prompt templates depending on question type
+
+Example:
+- For `multiple_choice`, the agent emphasizes logic-based decision-making from economic or financial theory
+- For `rise_fall`, the agent weighs sentiment, historical price action, and numerical indicators
+
+---
+
+## 🔄 Agent Flow Summary
+
+```mermaid
+flowchart TD
+    A[User Question] --> B{Detect Type}
+    B -->|MCQ| C[Retrieve Context]
+    B -->|Rise/Fall| C
+    C --> D[Generate Qwen Prompt]
+    D --> E[Model Inference (Qwen-32B)]
+    E --> F[Extract Final Answer]
+```
+
+This agent design allows easy extension to support new question types (e.g., ethical finance, accounting logic) and scales well with large LLMs and vector databases.
+
+---
+
 ## 📌 Notes
 
 - Ensure your vectorstore contains finance-related documents (e.g., FinCoT, Finance-Instruct-500k).
