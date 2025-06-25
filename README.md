@@ -182,9 +182,9 @@ flowchart TD
     B -->|MCQ| C[Retrieve Context]
     B -->|Rise/Fall| C
     C --> D[Generate Qwen Prompt]
-    D --> E[Model Inference (Qwen)]
+    D --> E["Model Inference (Qwen)"]
     E --> F[Extract Final Answer]
-```
+
 
 This agent design allows easy extension to support new question types (e.g., ethical finance, accounting logic) and scales well with large LLMs and vector databases.
 
