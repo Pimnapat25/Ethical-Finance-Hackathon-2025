@@ -182,7 +182,7 @@ flowchart TD
     B -->|MCQ| C[Retrieve Context]
     B -->|Rise/Fall| C
     C --> D[Generate Qwen Prompt]
-    D --> E[Model Inference (Qwen-14/32B)]
+    D --> E[Model Inference (Qwen)]
     E --> F[Extract Final Answer]
 ```
 
