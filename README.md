@@ -202,3 +202,8 @@ This agent design allows easy extension to support new question types (e.g., eth
 
 MIT License  
 (c) 2025 Financial AI Research Group
+
+--- 
+### Members 
+
+501014-จารุวรรณ, 500207-พิมณภัทร, 500482-กมลวิช, 500421-คณพัฒน์, 500690-ภาสุรเมธส์, 502055-วศิน
