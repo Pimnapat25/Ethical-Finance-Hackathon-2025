@@ -1,6 +1,6 @@
 # 📊 Financial Question Answering with Qwen-14B, Qwen-32B (RAG + Prompt Engineering)
 
-This project implements a **Retrieval-Augmented Generation (RAG)** pipeline enhanced with structured **prompt engineering** to answer financial questions using the **Qwen-14B** (for Rise/Fall) **Qwen-32B** (for MCQ) large language model. It supports two major types of questions:
+This project implements a **Retrieval-Augmented Generation (RAG)** pipeline enhanced with structured **prompt engineering** to answer financial questions using the **Qwen-14B** (for Rise/Fall), **Qwen-32B** (for MCQ) large language model. It supports two major types of questions:
 - **Multiple Choice (A–D)**
 - **Rise/Fall Market Movement Prediction**
 
@@ -10,7 +10,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** pipeline enha
 
 - `test.csv` and `multiple_choice.csv` and `rise_fall.csv` – Input question file
 - `vectorstore/` – Prebuilt knowledge base for context retrieval
-- `Finance_Hackathon_Pipeline.ipynb` – Exploratory and batch prompt generation logic
+- `Finance_Hackathon_Pipeline.ipynb`, `vllm_qwen32.ipynb` – Exploratory and batch prompt generation logic
 
 ---
 
