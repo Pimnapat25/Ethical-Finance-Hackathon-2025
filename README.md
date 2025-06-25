@@ -155,7 +155,7 @@ Responsible for:
 - Classifying the input question as `multiple_choice`, `rise_fall`, or `other`
 - Detecting the input language to support multilingual support (Thai/English)
 
-This allows the pipeline to dynamically decide which prompt structure and reasoning path to take.
+This allows the pipeline to decide which prompt structure to take.
 
 ### 2. 📚 Contextual Retrieval Module
 - Uses a vectorstore retriever (e.g., Chroma, FAISS) to find the most relevant documents for each question
@@ -163,7 +163,7 @@ This allows the pipeline to dynamically decide which prompt structure and reason
 - Handles noisy or mixed-language queries by relying on semantic similarity
 
 ### 3. 🤖 Prompt Generator and Inference Agent
-- Builds role-specific prompts for Qwen-32B using `<thinking>` and `<output>` tags
+- Builds role-specific prompts for Qwen-14B and Qwen-32B using `<thinking>` and `<output>` tags
 - Ensures the model reasons step-by-step before committing to a final answer
 - Maintains response consistency with clear parsing tags
 - Uses different prompt templates depending on question type
@@ -182,7 +182,7 @@ flowchart TD
     B -->|MCQ| C[Retrieve Context]
     B -->|Rise/Fall| C
     C --> D[Generate Qwen Prompt]
-    D --> E[Model Inference (Qwen-32B)]
+    D --> E[Model Inference (Qwen-14/32B)]
     E --> F[Extract Final Answer]
 ```
 
